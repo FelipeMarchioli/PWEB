@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta charset="UTF-8">  
+    </head>
+    <body>
+        <script>
+            function Retangulo(base, altura) {
+                this.base = base;
+                this.altura = altura;
+
+                this.calculaArea = function() {
+                    return base * altura;
+                }
+            }
+
+            var retangulo = new Retangulo(10, 5);
+            alert(retangulo.calculaArea());
+
+            function Conta() {
+                var nomeCorrentista;
+                var banco;
+                var numeroConta;
+                var saldo;
+
+                this.setNomeCorrentista = function (vNomeCorrentista) {
+                    this.nomeCorrentista = vNomeCorrentista;
+                };
+                this.setBanco = function (vBanco) {
+                    this.banco = vBanco;
+                };
+                this.setNumeroConta = function (vNumeroConta) {
+                    this.numeroConta = vNumeroConta;
+                };
+                this.setSaldo = function (vSaldo) {
+                    this.saldo = vSaldo;
+                };
+
+                this.getNomeCorrentista = function () {
+                    return this.nomeCorrentista;
+                };
+                this.getBanco = function () {
+                    return this.banco;
+                };
+                this.getNumeroConta = function () {
+                    return this.numeroConta;
+                };
+                this.getSaldo = function () {
+                    return this.saldo;
+                };
+            };
+
+            function ContaCorrente() {
+                var saldoEspecial;
+
+                this.setSaldoEspecial = function (vSaldoEspecial) {
+                    this.saldoEspecial = vSaldoEspecial;
+                };
+
+                this.getSaldoEspecial = function () {
+                    return this.saldoEspecial;
+                };
+            };
+
+            function ContaPoupanca() {
+                var juros;
+                var dataVencimento;
+
+                this.setJuros = function (vJuros) {
+                    this.juros = vJuros;
+                };
+                this.setDataVencimento = function (vDataVencimento) {
+                    this.dataVencimento = vDataVencimento;
+                };
+
+                this.getJuros = function () {
+                    return this.juros;
+                };
+                this.getDataVencimento = function () {
+                    return this.dataVencimento;
+                };
+            };
+
+            ContaCorrente.prototype = new Conta();
+            ContaPoupanca.prototype = new Conta();
+
+            var contaCorrente = new ContaCorrente();
+            contaCorrente.setNomeCorrentista("Felipe");
+            contaCorrente.setBanco("Bradesco");
+            contaCorrente.setNumeroConta("123-4");
+            contaCorrente.setSaldo(1234);
+            contaCorrente.setSaldoEspecial(10000);
+            alert(`Dados Conta Corrente: \n 
+                  Nome: ${contaCorrente.getNomeCorrentista()} \n
+                  Banco: ${contaCorrente.getBanco()} \n
+                  Conta: ${contaCorrente.getNumeroConta()} \n
+                  Saldo: ${contaCorrente.getSaldo()} \n
+                  Saldo Especial: ${contaCorrente.getSaldoEspecial()} \n`);
+
+            var contaPoupanca = new ContaPoupanca();
+            contaPoupanca.setNomeCorrentista("Felipe O.");
+            contaPoupanca.setBanco("Nubank");
+            contaPoupanca.setNumeroConta("987-4");
+            contaPoupanca.setSaldo(789);
+            contaPoupanca.setJuros(1);
+            contaPoupanca.setDataVencimento("10/10/2021");
+            alert(`Dados Conta Poupança: \n 
+                  Nome: ${contaPoupanca.getNomeCorrentista()} \n
+                  Banco: ${contaPoupanca.getBanco()} \n
+                  Conta: ${contaPoupanca.getNumeroConta()} \n
+                  Saldo: ${contaPoupanca.getSaldo()} \n
+                  Juros: ${contaPoupanca.getJuros()} \n
+                  Data Vencimento: ${contaPoupanca.getDataVencimento()} \n`);
+        </script> 
+    </body>
+
+</html>
