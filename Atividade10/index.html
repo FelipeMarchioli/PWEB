@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Usando eventos no Javascript</title>
+</head>
+
+<body>
+  <div id="janela">
+    <img src="assets/janelafechada.png" onmouseup="mUp()" onmouseover="mMover()"></img>
+  </div>
+	<script>
+		function mUp() {
+			document.getElementById("janela").innerHTML =  `<img src="assets/janelaquebra.png">`;
+		}
+
+		function mMover() {
+      document.getElementById("janela").innerHTML =  `<img src="assets/janelaaberta.png" onmouseout="mOut()" onmouseup="mUp()"/>`;
+		}
+		
+		function mOut() {
+			document.getElementById("janela").innerHTML =  `<img src="assets/janelafechada.png" onmouseup="mUp()" onmouseover="mMover()"/>`;
+		}
+
+    function mClick() {
+			document.getElementById("janela").innerHTML =  `<img src="assets/janelafechada.png" onmouseup="mUp()" onmouseover="mMover()">`;
+		}
+	</script>
+</body>
+
+</html>
