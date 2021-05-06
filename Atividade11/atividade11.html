@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Maiúscula - Minúscula</title>
+    <script>
+        let checkMaiuscula = false;
+        let checkMinuscula = false;
+        function tornarMaiusculo() {
+          let palavra = document.getElementById("palavra").value;
+          if (palavra && !checkMaiuscula) {
+            document.getElementById("palavra").value = palavra.toUpperCase();
+            checkMaiuscula = true;
+          } else if (!palavra) {
+            alert('Insira uma palavra');
+          } else {
+            document.getElementById("palavra").value = palavra.toLowerCase();
+            checkMaiuscula = false;
+          }
+        };
+        function tornarMinusculo() {
+          let palavra = document.getElementById("palavra").value;
+          if (palavra && !checkMinuscula) {
+            document.getElementById("palavra").value = palavra.toLowerCase();
+            checkMinuscula = true;
+          } else if (!palavra) {
+            alert('Insira uma palavra');
+          } else {
+            checkMinuscula = false;
+          }
+        };
+    </script>
+
+
+</head>
+
+<body>
+      <div id="principal" width=200 heigth=200 align=center>
+          Digite uma palavra:
+          <input name="idMaiusculas" type="text" id="palavra" size="52" maxlength="150">
+          <br>
+          <br>
+          <label>Maiúscula</label>
+          <input type="checkbox" id="maiuscula" value="" onclick="tornarMaiusculo()">
+          <label>Minúscula</label>
+          <input type="checkbox" id="minuscula" value="" onclick="tornarMinusculo()">
+      </div>
+</body>
+
+</html>
